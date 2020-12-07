@@ -1,0 +1,25 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\paliy\AndroidStudioProjects\KMMSample\shared\src\androidMain\AndroidManifest.xml:2:1-116
+INJECTED from C:\Users\paliy\AndroidStudioProjects\KMMSample\shared\src\androidMain\AndroidManifest.xml:2:1-116
+INJECTED from C:\Users\paliy\AndroidStudioProjects\KMMSample\shared\src\androidMain\AndroidManifest.xml:2:1-116
+	package
+		ADDED from C:\Users\paliy\AndroidStudioProjects\KMMSample\shared\src\androidMain\AndroidManifest.xml:2:70-114
+		INJECTED from C:\Users\paliy\AndroidStudioProjects\KMMSample\shared\src\androidMain\AndroidManifest.xml
+		INJECTED from C:\Users\paliy\AndroidStudioProjects\KMMSample\shared\src\androidMain\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\paliy\AndroidStudioProjects\KMMSample\shared\src\androidMain\AndroidManifest.xml:2:11-69
+uses-sdk
+INJECTED from C:\Users\paliy\AndroidStudioProjects\KMMSample\shared\src\androidMain\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\paliy\AndroidStudioProjects\KMMSample\shared\src\androidMain\AndroidManifest.xml
+INJECTED from C:\Users\paliy\AndroidStudioProjects\KMMSample\shared\src\androidMain\AndroidManifest.xml
+INJECTED from C:\Users\paliy\AndroidStudioProjects\KMMSample\shared\src\androidMain\AndroidManifest.xml
+INJECTED from C:\Users\paliy\AndroidStudioProjects\KMMSample\shared\src\androidMain\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\paliy\AndroidStudioProjects\KMMSample\shared\src\androidMain\AndroidManifest.xml
+		ADDED from C:\Users\paliy\AndroidStudioProjects\KMMSample\shared\src\androidMain\AndroidManifest.xml
+		INJECTED from C:\Users\paliy\AndroidStudioProjects\KMMSample\shared\src\androidMain\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\paliy\AndroidStudioProjects\KMMSample\shared\src\androidMain\AndroidManifest.xml
+		ADDED from C:\Users\paliy\AndroidStudioProjects\KMMSample\shared\src\androidMain\AndroidManifest.xml
+		INJECTED from C:\Users\paliy\AndroidStudioProjects\KMMSample\shared\src\androidMain\AndroidManifest.xml
