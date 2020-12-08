@@ -6,7 +6,7 @@ plugins {
     kotlin("plugin.serialization") version "1.4.10"
 }
 
-val ktor_version = "1.2.2"
+val ktor_version = "1.4.1"
 
 kotlin {
     android()
@@ -20,8 +20,12 @@ kotlin {
     sourceSets {
         val commonMain by getting{
             dependencies{
+
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1")
                 implementation("io.ktor:ktor-client-core:$ktor_version")
+                implementation("io.ktor:ktor-gson:$ktor_version")
+                implementation("io.ktor:ktor-client-serialization:1.4.1")
+                implementation("io.ktor:ktor-client-logging:1.4.1")
             }
         }
         val commonTest by getting {
@@ -34,6 +38,7 @@ kotlin {
             dependencies {
                 //implementation("com.google.android.material:material:1.2.1")
                 implementation("io.ktor:ktor-client-android:$ktor_version")
+                implementation("io.ktor:ktor-client-okhttp:1.4.1")
             }
         }
         val androidTest by getting {

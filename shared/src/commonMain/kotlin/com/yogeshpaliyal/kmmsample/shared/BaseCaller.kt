@@ -5,6 +5,7 @@ import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*
 import io.ktor.client.response.*
+import io.ktor.client.statement.HttpResponse
 import io.ktor.http.*
 import io.ktor.http.content.*
 
@@ -27,17 +28,10 @@ open class BaseCaller {
                      }
                  }
              )*/
-            body = TextContent(
-                text = "{\n" +
-                        "  \"token\": \"gxdvaLqgxrxbcXCxrnDqcQ\",\n" +
-                        "  \"data\": {\n" +
-                        "\"status\":200,\n" +
-                        "\"message\": \"success\",\n" +
-                        "\n" +
-                        "    \n" +
-                        "  }\n" +
-                        "}", contentType = ContentType.Text.Plain
-            )
+            /*body = TextContent(
+                text = "{"\"token\":\"gxdvaLqgxrxbcXCxrnDqcQ\"}"
+
+            )*/
         }
 
 

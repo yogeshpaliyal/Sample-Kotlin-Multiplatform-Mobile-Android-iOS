@@ -1,10 +1,10 @@
 package com.yogeshpaliyal.kmmsample.shared.data
 
 import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
 
 class BaseModel {
-    @SerialName("title")
+    @com.google.gson.annotations.SerializedName("title")
     var title = ""
+    @com.google.gson.annotations.SerializedName("message")
     var message = ""
 }

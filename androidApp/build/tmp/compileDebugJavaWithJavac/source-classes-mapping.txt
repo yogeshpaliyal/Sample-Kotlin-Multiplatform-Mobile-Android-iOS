@@ -1,2 +1,0 @@
-com/yogeshpaliyal/kmmsample/androidApp/BuildConfig.java
- com.yogeshpaliyal.kmmsample.androidApp.BuildConfig
