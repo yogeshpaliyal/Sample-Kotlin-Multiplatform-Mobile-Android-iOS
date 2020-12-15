@@ -1,6 +1,10 @@
 package com.yogeshpaliyal.kmmsample.shared
 
 import com.yogeshpaliyal.kmmsample.shared.data.BaseApiModel
+import io.ktor.client.*
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
+import io.ktor.http.*
 
 open class BaseCaller {
     private val params by lazy {
@@ -30,7 +34,7 @@ open class BaseCaller {
 
 
         if (respone.status == HttpStatusCode.OK) {
-            val result = respone.call.receive<BaseApiModel>()
+            val result = respone.call.receive(BaseApiModel::ty)
             if (result.status == 200) {
                 return Resource.success(result, result.message)
             } else {
