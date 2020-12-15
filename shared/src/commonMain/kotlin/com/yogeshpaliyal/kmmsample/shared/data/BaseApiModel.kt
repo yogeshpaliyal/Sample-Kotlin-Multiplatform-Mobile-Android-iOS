@@ -1,14 +1,16 @@
 package com.yogeshpaliyal.kmmsample.shared.data
 
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.json.JsonElement
 
 
 data class BaseApiModel (
-    @com.google.gson.annotations.SerializedName("status")
+    @SerialName("status")
     var status: Int = 0,
 
-    @com.google.gson.annotations.SerializedName("message")
+    @SerialName("message")
     var message: String = "",
 
-    @com.google.gson.annotations.SerializedName("data")
-    var data : com.google.gson.JsonElement? = null
+    @SerialName("data")
+    var data : JsonElement? = null
 )
