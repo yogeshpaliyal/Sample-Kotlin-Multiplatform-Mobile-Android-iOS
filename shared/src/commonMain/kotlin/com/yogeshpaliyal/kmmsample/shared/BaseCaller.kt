@@ -1,13 +1,6 @@
 package com.yogeshpaliyal.kmmsample.shared
 
 import com.yogeshpaliyal.kmmsample.shared.data.BaseApiModel
-import io.ktor.client.*
-import io.ktor.client.call.*
-import io.ktor.client.request.*
-import io.ktor.client.response.*
-import io.ktor.client.statement.HttpResponse
-import io.ktor.http.*
-import io.ktor.http.content.*
 
 open class BaseCaller {
     private val params by lazy {
@@ -15,7 +8,7 @@ open class BaseCaller {
     }
 
     suspend fun apiCall(api: String): Resource<BaseApiModel> {
-        val httpClient = HttpClient {
+            val httpClient = HttpClient {
 
         }
 
