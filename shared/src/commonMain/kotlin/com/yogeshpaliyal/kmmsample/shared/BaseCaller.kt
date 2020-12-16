@@ -2,12 +2,9 @@ package com.yogeshpaliyal.kmmsample.shared
 
 import com.yogeshpaliyal.kmmsample.shared.data.BaseApiModel
 import io.ktor.client.*
-import io.ktor.client.call.*
-import io.ktor.client.features.DefaultRequest.Feature.install
 import io.ktor.client.features.json.*
 import io.ktor.client.features.json.serializer.*
 import io.ktor.client.request.*
-import io.ktor.client.statement.*
 import io.ktor.http.*
 
 open class BaseCaller {
@@ -34,6 +31,9 @@ open class BaseCaller {
         try {
             val response = httpClient.get<BaseApiModel>(api) {
                 accept(ContentType.Application.Json)
+                params.forEach {
+                    parameter(it.key,it.value)
+                }
             }
 
             if (response.status == 200) {
