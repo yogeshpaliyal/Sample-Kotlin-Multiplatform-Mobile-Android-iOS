@@ -5,6 +5,7 @@ import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.features.DefaultRequest.Feature.install
 import io.ktor.client.features.json.*
+import io.ktor.client.features.json.serializer.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
@@ -16,43 +17,33 @@ open class BaseCaller {
 
     suspend fun apiCall(api: String): Resource<BaseApiModel> {
         val httpClient = HttpClient {
-
+            install(JsonFeature) {
+                val json = kotlinx.serialization.json.Json { ignoreUnknownKeys = true }
+                serializer = KotlinxSerializer(json)
+            }
         }
 
-        val respone = httpClient.request<HttpResponse> {
+
+
+       /* val respone = httpClient.request<HttpResponse> {
             url(api)
             method = HttpMethod.Get
             accept(ContentType.Application.Json)
-            /*install(JsonFeature) {
-                serializer = JacksonSerializer {
-                }
-            }*/
-            /* body = MultiPartFormDataContent(
-                 formData {
-                     for (param in params) {
-                         append(param.key,param.value)
-                     }
-                 }
-             )*/
-            /*body = TextContent(
-                text = "{"\"token\":\"gxdvaLqgxrxbcXCxrnDqcQ\"}"
-
-            )*/
         }
+*/
+        try {
+            val response = httpClient.get<BaseApiModel>(api) {
+                accept(ContentType.Application.Json)
+            }
 
-
-      //  val result = respone.call.receive<String>()
-
-
-        if (respone.status == HttpStatusCode.OK) {
-            val result = respone.call.receive<BaseApiModel>()
-            if (result is BaseApiModel)
-                if (result.status == 200) {
-                    return Resource.success(result, result.message)
-                } else {
-                    return Resource.error(result.message, result)
-                }
+            if (response.status == 200) {
+                return Resource.success(response, response.message)
+            } else {
+                return Resource.error(response.message, response)
+            }
+        }catch (e:Exception){
+            e.printStackTrace()
+            return Resource.error(e.message)
         }
-        return Resource.error("Some error occurred")
     }
 }

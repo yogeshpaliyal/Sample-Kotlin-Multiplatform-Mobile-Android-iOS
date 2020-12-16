@@ -1,9 +1,11 @@
 package com.yogeshpaliyal.kmmsample.shared.data
 
 import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
 
 
+@Serializable
 data class BaseApiModel (
     @SerialName("status")
     var status: Int = 0,

@@ -10,7 +10,7 @@ package com.yogeshpaliyal.kmmsample.shared
 
 class SampleCaller: BaseCaller() {
 
-    suspend fun callApi() =    apiCall("http://yogeshpaliyal.com/api/success.html")
+    suspend fun callApi() =    apiCall("http://yogeshpaliyal.com/api/error.json")
 
 
 }
