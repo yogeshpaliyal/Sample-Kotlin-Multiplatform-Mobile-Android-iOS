@@ -2,6 +2,8 @@ package com.yogeshpaliyal.kmmsample.androidApp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.util.Log
 import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import com.yogeshpaliyal.kmmsample.shared.Greeting
@@ -26,7 +28,5 @@ class MainActivity : AppCompatActivity() {
                 tv.text = response.toString()
             }
         }
-
-
     }
 }

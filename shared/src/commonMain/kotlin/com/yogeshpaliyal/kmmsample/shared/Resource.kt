@@ -5,7 +5,7 @@ package com.yogeshpaliyal.kmmsample.shared
 CREATED BY : yogesh ON 06/08/20 11:35 AM
 */
 
-data class Resource<out T>(var status: Status, val data: T?, var message: String?) {
+data class Resource<out T>(var status: Status, val data: T?, var message: String?, var errorCode : String?=null) {
 
     companion object {
 
@@ -29,11 +29,11 @@ data class Resource<out T>(var status: Status, val data: T?, var message: String
             )
         }*/
 
-        fun <T> error(msg: String? = "", data: T? = null): Resource<T> {
+        fun <T> error(msg: String? = "", data: T? = null, errorCode: String?): Resource<T> {
             return Resource(
                 Status.ERROR,
                 data,
-                msg
+                msg,errorCode
             )
         }
 

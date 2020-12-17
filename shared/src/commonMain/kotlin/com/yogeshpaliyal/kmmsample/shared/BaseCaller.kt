@@ -6,6 +6,7 @@ import io.ktor.client.features.json.*
 import io.ktor.client.features.json.serializer.*
 import io.ktor.client.request.*
 import io.ktor.http.*
+import kotlinx.serialization.SerializationException
 
 open class BaseCaller {
     private val params by lazy {
@@ -18,17 +19,20 @@ open class BaseCaller {
                 val json = kotlinx.serialization.json.Json { ignoreUnknownKeys = true }
                 serializer = KotlinxSerializer(json)
             }
+           /* install(Logging) {
+                logger = Logger.DEFAULT
+                level = LogLevel.HEADERS
+            }*/
         }
 
-
-
-       /* val respone = httpClient.request<HttpResponse> {
-            url(api)
-            method = HttpMethod.Get
-            accept(ContentType.Application.Json)
-        }
-*/
         try {
+
+            /*val request = httpClient.request<HttpResponse> {
+                url(api)
+                method = HttpMethod.Get
+                accept(ContentType.Application.Json)
+            }*/
+
             val response = httpClient.get<BaseApiModel>(api) {
                 accept(ContentType.Application.Json)
                 params.forEach {
@@ -36,14 +40,18 @@ open class BaseCaller {
                 }
             }
 
-            if (response.status == 200) {
-                return Resource.success(response, response.message)
-            } else {
-                return Resource.error(response.message, response)
-            }
+                if (response.status == 200) {
+                    return Resource.success(response, response.message)
+                } else {
+                    return Resource.error(response.message, response,ErrorCodes.SERVER_ERROR)
+                }
+
+        }catch (e: SerializationException) {
+            e.printStackTrace()
+            return Resource.error(errorCode = ErrorCodes.PARSING_ERROR)
         }catch (e:Exception){
             e.printStackTrace()
-            return Resource.error(e.message)
+            return Resource.error("Some error occurred",errorCode = ErrorCodes.UNKNOWN_ERROR)
         }
     }
 }
